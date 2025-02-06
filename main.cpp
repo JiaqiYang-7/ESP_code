@@ -3,7 +3,6 @@
 #include "encoder.h"
 #include "movement.h"
 
-// 全局对象
 MotorController motor;
 EncoderSystem encoder;
 MovementController movement(motor, encoder);
@@ -12,20 +11,19 @@ int main() {
     motor.enable();
     encoder.init();
     
-    // 绘制正方形
     for(int i=0; i<4; i++) {
-        movement.move_forward(0.5f);  // 前进0.5米
-        movement.turn_degrees(90.0f); // 右转90度
+        movement.move_forward(0.5f);  // forward 0.5m
+        movement.turn_degrees(90.0f); // right turn 90
     }
     
-    // 180度调头
+    // 180 turn
     movement.turn_degrees(180.0f);
     
-    // 反向绘制
+    // inverse
     for(int i=0; i<4; i++) {
         movement.move_forward(0.5f);
-        movement.turn_degrees(-90.0f); // 左转90度
+        movement.turn_degrees(-90.0f); // left turn 90
     }
     
-    while(1); // 永久停止
+    while(1); // stop
 }
