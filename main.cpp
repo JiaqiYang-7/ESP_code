@@ -2,7 +2,7 @@
 #include "motor_control.h"
 #include "encoder.h"
 #include "movement.h"
-
+// global objects
 MotorController motor;
 EncoderSystem encoder;
 MovementController movement(motor, encoder);
