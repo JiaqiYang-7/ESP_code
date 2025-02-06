@@ -1,0 +1,10 @@
+program stucture
+├── config.h          // harware config and global parameters
+├── motor_control.h   // motor_control
+├── motor_control.cpp
+├── encoder.h         // encoder process
+├── encoder.cpp 
+├── pid_controller.h  // PID control
+├── movement.h        // movement control
+├── movement.cpp
+└── main.cpp          // main
