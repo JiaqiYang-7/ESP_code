@@ -20,13 +20,25 @@ void MotorController::disable() {
 }
 
 void MotorController::set_left_speed(float pwm) {
-    left_dir = (pwm > 0) ? 1 : 0;
-    left_pwm.write(fabs(pwm));
+    if (pwm > 0) {
+        left_dir = 1;  // forard
+    } else if (pwm < 0) {
+        left_dir = 0;  // reverse
+    } else {
+        left_dir = 0;  // stop
+    }
+    left_pwm.write(fabs(pwm));  
 }
 
 void MotorController::set_right_speed(float pwm) {
-    right_dir = (pwm > 0) ? 1 : 0;
-    right_pwm.write(fabs(pwm));
+    if (pwm > 0) {
+        right_dir = 1;  // forward
+    } else if (pwm < 0) {
+        right_dir = 0;  // reverse
+    } else {
+        right_dir = 0;  // stop
+    }
+    right_pwm.write(fabs(pwm));  
 }
 
 void MotorController::stop() {
